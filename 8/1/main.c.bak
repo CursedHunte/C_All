@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include "encrypt.h"
+#include "checksum.h"
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	char s[] = "Скажи друг и проходи";
+	encrypt(s);
+	printf("encrypted to '%s'\n", s);
+	printf("control sum %i\n", checksum(s));
+	encrypt(s);
+	printf("uncrypted back to '%s'\n", s);
+	printf("control sum %i\n", checksum(s));
+	return 0;
+}
